@@ -36,15 +36,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $locale = array_key_exists(request()->segment(1), config('app.locales')) ? request()->segment(1) : null;
-
-        if ($locale) {
-            App::setLocale($locale);
-        }
-        
         $this->mapApiRoutes();
 
-        $this->mapWebRoutes($locale);
+        $this->mapWebRoutes();
     }
 
     /**
@@ -54,10 +48,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapWebRoutes($locale)
+    protected function mapWebRoutes()
     {
-        Route::prefix($locale)
-             ->middleware('web')
+        Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
     }

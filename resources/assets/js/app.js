@@ -1,11 +1,21 @@
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import Layout from './hoc/Layout/Layout';
+import Routes from './routes/index';
 
-require('./bootstrap');
-require('./components/cp/tour');
-require('./components/cp/fileupload');
+export default class App extends Component {
+    render() {
+        return (
+            <Layout>
+                {/*Routes*/}
+                <Routes />
+            </Layout>
+        );
+    }
+}
 
+
+if (document.getElementById('app')) {
+    ReactDOM.render(<App />, document.getElementById('app'));
+}
