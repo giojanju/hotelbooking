@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
 import Routes from './routes/index';
@@ -7,10 +8,12 @@ import Routes from './routes/index';
 export default class App extends Component {
     render() {
         return (
-            <Layout>
-                {/*Routes*/}
-                <Routes />
-            </Layout>
+	        <BrowserRouter>
+	            <Layout>
+	                {/*Routes*/}
+	                <Routes />
+	            </Layout>
+	        </BrowserRouter>
         );
     }
 }

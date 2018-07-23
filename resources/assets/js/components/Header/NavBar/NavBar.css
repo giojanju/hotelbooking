@@ -1,0 +1,21 @@
+.navbar-brand {
+	padding: 20px 60px 20px 0;
+    border-right: 1px solid #e1e1e1;
+    max-width: 100%;
+}
+
+nav {
+	padding: 0 !important;
+}
+
+.nav-link.active {
+	color: #75c5cf !important;
+}
+
+.nav-link {
+	transition: all 0.4s;
+}
+
+.nav-link:hover {
+	color: #75c5cf !important;
+}

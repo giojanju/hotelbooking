@@ -1,0 +1,38 @@
+.top-bar-container {
+    background: #272727;
+    color: #939393;
+    font-size: 11px;
+    border-bottom: 2px solid #75c5cf;
+}
+.top-bar-container i {
+	font-size: 14px;
+    padding-right: 5px;
+    margin-top: 2px;
+}
+.top-bar-container a, i {
+    color: #939393;
+    transition: all 0.4s;
+}
+.top-bar-container a {
+	position: relative;
+}
+.top-bar-container a i.fa-phone {
+	position: absolute;
+	left: 0px;
+}
+
+.top-bar-container .contact-info .phone:after {
+	content: "";
+	position: absolute;
+	right: 0;
+	width: 1px;
+	height: 60%;
+	background: #3c3c3c;
+}
+
+.top-bar-container a:hover {
+	color: #fff;
+}
+.top-bar-container a:hover i {
+	color: #fff;
+}
