@@ -10,21 +10,6 @@ import {
 import './IncomeCounter.css';
 
 class IncomeCounter extends Component {
-	constructor(props) {
-	    super(props);
-
-	    this.state = {
-	        isOpen: false
-	    };
-	
-	    this.toggle = this.toggle.bind(this);
-	}
-    toggle() {
-	    this.setState({
-	      isOpen: !this.state.isOpen
-	    });
-	}
-
 	render() {
 		return (
 			<section id="reservation-form">
