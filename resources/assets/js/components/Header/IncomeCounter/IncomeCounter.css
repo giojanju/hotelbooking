@@ -1,7 +1,7 @@
 #reservation-form {
 	position: relative;
 	margin-top: -60px;
-    z-index: 9999;
+    z-index: 999;
 }
 
 #reservation-form .container {

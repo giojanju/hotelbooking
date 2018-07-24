@@ -4,6 +4,11 @@
     max-width: 100%;
 }
 
+.fixed-top {
+	max-height: 55px;
+	overflow: hidden;
+}
+
 nav {
 	padding: 0 !important;
 }

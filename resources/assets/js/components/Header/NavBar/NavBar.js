@@ -15,7 +15,8 @@ class Navigationbar extends Component {
 	    super(props);
 
 	    this.state = {
-	        isOpen: false
+	        isOpen: false,
+	        fixed: '',
 	    };
 	
 	    this.toggle = this.toggle.bind(this);
@@ -26,11 +27,25 @@ class Navigationbar extends Component {
 	    });
 	}
 
+	componentDidMount(){
+		window.addEventListener('scroll', (event) => {
+		  	if (window.scrollY >= 42) {
+		  		this.setState({
+		  			fixed: 'fixed-top',
+		  		})
+		  	} else {
+		  		this.setState({
+		  			fixed: '',
+		  		})
+		  	}
+		});
+	}
+
 	render() {
 		return (
-			<Navbar color="light" light expand="md">
+			<Navbar color="light" className={this.state.fixed} light expand="md">
 			    <div className="container">
-			    	<NavLink to="/" className="navbar-brand"><img src="/img/logo.png" /></NavLink>
+			    	<NavLink to="/" className={`navbar-brand`}><img src="/img/logo.png" /></NavLink>
 				    <NavbarToggler onClick={this.toggle} />
 				    <Collapse isOpen={this.state.isOpen} navbar>
 				        <Nav className="mr-auto" navbar>
