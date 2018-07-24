@@ -1,0 +1,28 @@
+#reservation-form {
+	position: relative;
+	margin-top: -60px;
+    z-index: 9999;
+}
+
+#reservation-form .container {
+	-webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #ebebeb;
+    -webkit-box-shadow: 0 3px 0 0 rgba(0,0,0,0.12);
+    box-shadow: 0 3px 0 0 rgba(0,0,0,0.12);
+    padding: 20px 40px;
+    background-color: #fff;
+}
+
+.btn-primary {
+	background-color: #75c5cf;
+    border-color: #35929e;
+    text-shadow: 0 -1px 0 #50878e;
+    margin-top: 30px;
+	transition: all 0.4s
+}
+
+.btn-primary:hover {
+	background-color: #64cedb;
+    border-color: #35929e;
+}

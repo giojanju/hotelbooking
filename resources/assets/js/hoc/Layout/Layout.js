@@ -2,6 +2,7 @@ import React from 'react';
 import TopBar from '../../components/Header/TopBar/TopBar';
 import NavBar from '../../components/Header/NavBar/NavBar';
 import Slider from '../../components/Header/Slider/Slider';
+import IncomeCounter from '../../components/Header/IncomeCounter/IncomeCounter';
 
 const layout = (props) => {
 	return (
@@ -9,8 +10,7 @@ const layout = (props) => {
 			<TopBar />
 			<NavBar />
 			<Slider />
-			<h1>Header(top_bar, navbar, slider, forms)</h1>
-			{/*Routes*/}
+			<IncomeCounter />
 			{props.children}
 		</div>
 	);

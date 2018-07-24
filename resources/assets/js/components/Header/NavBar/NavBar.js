@@ -10,7 +10,6 @@ import {
 } from 'reactstrap';
 import './NavBar.css';
 
-
 class Navigationbar extends Component {
 	constructor(props) {
 	    super(props);
