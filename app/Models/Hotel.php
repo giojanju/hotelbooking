@@ -18,7 +18,19 @@ class Hotel extends Model implements HasMedia
     public $translatedAttributes = [
     	'name',
     	'title',
+    	'slug',
+    	'description',
     ];
 
     protected $with = ['translations'];
+
+    public function services()
+    {
+    	return $this->hasMany(HotelService::class);
+    }
+
+    public function getMediaImgAttribute()
+    {
+    	return $this->getFirstMedia('cover');
+    }
 }

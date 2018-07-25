@@ -11,6 +11,7 @@ class HotelTranslation extends Model
     protected $fillable = [
     	'name',
     	'title',
+    	'slug',
     	'description',
     ];
 }

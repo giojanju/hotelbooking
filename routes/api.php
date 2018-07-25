@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::namespace('Api')->group(function () {
+	Route::prefix('hotels')->name('hotels.')->group(function () {
+	    Route::post('json', 'HotelController@json')->name('json');
+	    Route::post('json/{id}', 'HotelController@single')->name('single');
+	    Route::post('create', 'HotelController@create')->name('create');
+	    Route::post('update/{id}', 'HotelController@update')->name('update');
+	    Route::post('delete/{id}', 'HotelController@delete')->name('delete');
+	});
 });

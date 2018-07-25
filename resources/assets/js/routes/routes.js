@@ -1,4 +1,5 @@
 import Home from '../containers/App/Home/Home';
+import Hotel from '../containers/App/Hotel/Hotel';
 
 const routes = [
     {
@@ -6,6 +7,12 @@ const routes = [
         exact: true,
         auth: false,
         component: Home
+    },
+    {
+        path: '/hotels/:id/:slug',
+        exact: true,
+        auth: false,
+        component: Hotel
     },
 ];
 

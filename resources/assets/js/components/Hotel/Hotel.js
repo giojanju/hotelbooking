@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const hotel = (props) => {
 	let hotelInfoList = null;
-	if (props.hotel.params.length > 0) {
+	if (props.hotel.params && props.hotel.params.length > 0) {
 		hotelInfoList = (
 			<div className="d-flex">
 				<div className="col-xs-6">
@@ -28,7 +28,7 @@ const hotel = (props) => {
 	return (
 		<div className="col-md-4">
 			<div className="room-thumb">
-				<img width="100%" src={props.hotel.image} />
+				<img width="100%" src={`/media/${props.hotel.media[0].order_column}/${props.hotel.media[0].file_name}`} />
 				<div className="mask">
 					<div className="main main d-flex justify-content-between align-items-center">
 						<h5>{props.hotel.name}</h5>
@@ -39,7 +39,7 @@ const hotel = (props) => {
 					    	{props.hotel.descripion} 
 					    </p>
 		                {hotelInfoList}
-					    <Link to={`/hotels/${props.hotel.slug}`} className="btn btn-primary btn-block">Read More</Link>
+					    <Link to={`/hotels/${props.hotel.id}/${props.hotel.slug}`} className="btn btn-primary btn-block">Read More</Link>
 					</div>
 				</div>
 			</div>

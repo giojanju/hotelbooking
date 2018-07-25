@@ -79,7 +79,7 @@ return [
     */
     'use_property_fallback' => true,
 
-    'locale' => 'en',
+    'locale' => 'ge',
 
     'locales' => ['en', 'ge', 'ru'],
 

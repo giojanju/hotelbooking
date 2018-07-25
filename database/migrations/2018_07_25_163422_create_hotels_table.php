@@ -28,6 +28,7 @@ class CreateHotelsTable extends Migration
                 ->onDelete('cascade');
 
             $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
