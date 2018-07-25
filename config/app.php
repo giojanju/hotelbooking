@@ -81,20 +81,7 @@ return [
 
     'locale' => 'en',
 
-    'locales' => [
-        'en' => [
-            'flag' => 'usa.svg',
-            'name' => 'English',
-        ],
-        'ru' => [
-            'flag' => 'russian.svg',
-            'name' => 'Russian',
-        ],
-        'ch' => [
-            'flag' => 'china.svg',
-            'name' => 'Chines',
-        ],
-    ],
+    'locales' => ['en', 'ge', 'ru'],
 
     /*
     |--------------------------------------------------------------------------
