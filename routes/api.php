@@ -21,4 +21,12 @@ Route::namespace('Api')->group(function () {
 	    Route::post('update/{id}', 'HotelController@update')->name('update');
 	    Route::post('delete/{id}', 'HotelController@delete')->name('delete');
 	});
+
+	Route::prefix('services')->name('services.')->group(function () {
+	    Route::post('json', 'ServiceController@json')->name('json');
+	    Route::post('json/{id}', 'ServiceController@single')->name('single');
+	    Route::post('create', 'ServiceController@create')->name('create');
+	    Route::post('update/{id}', 'ServiceController@update')->name('update');
+	    Route::post('delete/{id}', 'ServiceController@delete')->name('delete');
+	});
 });

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Slider from '../../../components/Header/Slider/Slider';
 import IncomeCounter from '../../../components/Header/IncomeCounter/IncomeCounter';
 import Hotel from '../../../components/Hotel/Hotel';
+import Service from '../../../components/Services/Service/Service';
 import axios from '../../../axios';
 
 import './Home.css';
@@ -12,6 +13,7 @@ class Home extends Component {
 
 		this.state = {
 			hotels: [],
+			services: [],
 		};
 	}
 
@@ -27,7 +29,15 @@ class Home extends Component {
 			console.log(er);
 		});
 
-		console.log(this.state.hotels);	
+		axios.post('services/json', null).then(re => {
+			if (re.data.succes) {
+				this.setState({
+					services: re.data.data,
+				});
+			}
+		}).catch(er => {
+			console.log(er)
+		})
 	}
 
 	render() {
@@ -37,6 +47,7 @@ class Home extends Component {
 			<div>
 				<Slider />
 				<IncomeCounter />
+				{/*Hotels section*/}
 				<section id="rooms">
 					<div className="container">
 						<div className="row">
@@ -50,6 +61,17 @@ class Home extends Component {
 							})}
 						</div>
 					</div>
+				</section>
+				{/*Hotels section*/}
+				<section id="services">
+					<div className="container">
+						<h2 className="text-center">Our Services</h2>
+						<div className="row">
+							{this.state.services.map((service, index) => {
+								return <Service key={index} service={service} />
+							})}
+						</div>
+					</div>	
 				</section>
 			</div>
 		);

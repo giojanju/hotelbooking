@@ -1,0 +1,32 @@
+#inner-cover {
+	height: 150px;
+	background-image: url('/img/parallax.jpg');
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+
+#inner-cover:after {
+	content: "";
+	position: absolute;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(90, 186, 198, 0.8);
+}
+#inner-cover .container {
+	position: relative;
+	z-index: 9999;
+}
+#inner-cover h3 {
+	color: #fff;
+	font-weight: bold;
+	font-size: 35px;
+	padding-top: 80px;
+}
+
+#inner-hotel-content {
+	margin-top: 50px;
+}

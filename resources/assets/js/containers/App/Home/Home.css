@@ -8,7 +8,7 @@
 
 #rooms .lined-heading span {
 	position: relative;
-    z-index: 5;
+    z-index: 999999;
     padding: 0 20px;
     background: #fff;
     display: inline-block;
@@ -17,7 +17,7 @@
 #rooms .lined-heading:after {
 	position: absolute;
     top: 50%;
-    z-index: 1;
+    z-index: 99999;
     display: block;
     width: 100%;
     height: 1px;
@@ -92,4 +92,22 @@
 }
 .btn-primary {
 	margin-top: 0;
+}
+
+/*Start services page*/
+#services {
+    padding: 80px 0;
+    margin-top: 80px;
+    background: #5abac6;
+    color: #fff;
+}
+
+#services h5 {
+    line-height: 30px;
+}
+
+#services i {
+    color: #fff;
+    font-size: 25px;
+    margin: 20px 0;
 }

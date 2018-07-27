@@ -26,3 +26,6 @@
 	background-color: #64cedb;
     border-color: #35929e;
 }
+#reservation-form .btn-primary {
+    margin-top: 30px;
+} 

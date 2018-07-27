@@ -9,7 +9,7 @@ const routes = [
         component: Home
     },
     {
-        path: '/hotels/:id/:slug',
+        path: '/hotels/:id',
         exact: true,
         auth: false,
         component: Hotel

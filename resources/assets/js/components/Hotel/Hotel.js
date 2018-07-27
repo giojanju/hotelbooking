@@ -39,7 +39,7 @@ const hotel = (props) => {
 					    	{props.hotel.descripion} 
 					    </p>
 		                {hotelInfoList}
-					    <Link to={`/hotels/${props.hotel.id}/${props.hotel.slug}`} className="btn btn-primary btn-block">Read More</Link>
+					    <Link to={`/hotels/${props.hotel.id}`} className="btn btn-primary btn-block">Read More</Link>
 					</div>
 				</div>
 			</div>
