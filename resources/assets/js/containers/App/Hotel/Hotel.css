@@ -18,7 +18,7 @@
 }
 #inner-cover .container {
 	position: relative;
-	z-index: 9999;
+	z-index: 1000;
 }
 #inner-cover h3 {
 	color: #fff;

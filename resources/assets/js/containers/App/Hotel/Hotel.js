@@ -45,8 +45,8 @@ class Home extends Component {
 
 	    if (media !== undefined) {
 	    	mediaImgs = media.map(img => {
-	    		return  (<div>
-	    					<img width="100%" key={img.id} src={`/media/${img.order_column}/${img.file_name}`} />
+	    		return  (<div key={img.id}>
+	    					<img width="100%" src={`/media/${img.order_column}/${img.file_name}`} />
 	    				</div>);
 	    	});
 	    }
@@ -69,6 +69,31 @@ class Home extends Component {
 							<div className="col-md-4">
 								right
 							</div>
+						</div>
+					</div>
+					<div className="container">
+						<div className="row">
+							<div className="col-md-7">
+								<div>
+									<div className="col-md-12 px-0 pt-5">
+										<h2 className="lined-heading">
+											<span>დეტალური ინფორმაცია</span>
+										</h2>
+									</div>	
+								</div>
+							</div>
+							<div className="col-md-5">
+								<div>
+									<div className="col-md-12 px-0 pt-5">
+										<h2 className="lined-heading">
+											<span>აღწერა</span>
+										</h2>
+										<div className="mt-5">
+											<p>{this.state.hotel.description}</p>
+										</div>
+									</div>	
+								</div>
+							</div>						
 						</div>
 					</div>
 				</section>

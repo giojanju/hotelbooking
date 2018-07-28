@@ -1,4 +1,4 @@
-#rooms .lined-heading {
+.lined-heading {
     position: relative;
     margin-top: 0;
     margin-bottom: 50px;
@@ -6,7 +6,7 @@
     display: block;
 }
 
-#rooms .lined-heading span {
+.lined-heading span {
 	position: relative;
     z-index: 999999;
     padding: 0 20px;
@@ -14,7 +14,7 @@
     display: inline-block;
 }
 
-#rooms .lined-heading:after {
+.lined-heading:after {
 	position: absolute;
     top: 50%;
     z-index: 99999;
