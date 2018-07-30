@@ -55,8 +55,10 @@ abstract class CrudAbstract extends Controller
     {
         $object = $this->conf('model.name')::findOrFail($id);
 
-        if (null !== $this->conf('model.relations') && count($this->conf('model.relations'))) {
-            $object = $this->conf('model.name')::with($this->conf('model.relations'))->findOrFail($id);
+        if ($this->conf('model.relations') !== null && count($this->conf('model.relations'))) {
+            $relations = $this->conf('model.relations');
+            $model = $this->conf('model.name');
+            $object = $model::with($relations)->findOrFail($id);
         }
 
         return [
