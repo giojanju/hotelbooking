@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 
 const hotel = (props) => {
 	let hotelInfoList = null;
-	if (props.hotel.params && props.hotel.params.length > 0) {
+	if (props.hotel.services && props.hotel.services.length > 0) {
 		hotelInfoList = (
 			<div className="d-flex">
 				<div className="col-xs-6">
 		            <ul className="list-unstyled">
-		            	{props.hotel.params.map((cur, i) => {
+		            	{props.hotel.services.map((cur, i) => {
 		            		return i <= 2 ? <li key={i}><i className="fa fa-check-circle"></i>{cur}</li> : ''
 		            	})}
 		            </ul>
 				</div>
 				<div className="col-xs-6">
 		            <ul className="list-unstyled">
-		            	{props.hotel.params.map((cur, i) => {
+		            	{props.hotel.services.map((cur, i) => {
 		            		return i >= 3 ? <li key={i}><i className="fa fa-check-circle"></i>{cur}</li> : ''
 		            	})}
 		            </ul>

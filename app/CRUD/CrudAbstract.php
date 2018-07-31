@@ -4,6 +4,7 @@ namespace App\CRUD;
 
 use App\Http\Controllers\Controller;
 use App\Product;
+use Validator;
 use Illuminate\Http\Request;
 
 abstract class CrudAbstract extends Controller
@@ -12,7 +13,7 @@ abstract class CrudAbstract extends Controller
     {
         $object = $this->conf('model.name')::all();
         
-        if (null !== $this->conf('model.relations') && count($this->conf('model.relations'))) {
+        if ($this->conf('model.relations') !== null && count($this->conf('model.relations'))) {
             $object = $this->conf('model.name')::with($this->conf('model.relations'))->get();
         }
         
@@ -31,14 +32,14 @@ abstract class CrudAbstract extends Controller
         $object = $this->conf('model.name')::create($data);
 
         // Many to many relation
-        if (null !== $this->conf('model.pusher') && count($this->conf('model.pusher'))) {
+        if ($this->conf('model.pusher') !== null && count($this->conf('model.pusher'))) {
             foreach ($this->conf('model.pusher') as $relation) {
                 $object->$relation()->sync($data[$relation]);
             }
         }
 
         // attach media
-        if (null !== $this->conf('media') && count($this->conf('media'))) {
+        if ($this->conf('media') !== null && count($this->conf('media'))) {
             if ($request->has($this->conf('media.field'))) {
                 $this->object->addMedia($this->conf('media.field'))
                     ->toMediaCollection($this->conf('media.collection'));
@@ -73,17 +74,23 @@ abstract class CrudAbstract extends Controller
 
         $model = $this->conf('model.name')::findOrFail($id);
 
-        $request->validate($this->conf('model.rules'));
+        $v = Validator::make($request->all(), $this->conf('model.rules'));
+
+        if ($v->fails()) {
+            return [
+                'errors' => $v->errors(),
+            ];
+        }
 
         // Many to many relation
-        if (null !== $this->conf('model.pusher') && count($this->conf('model.pusher'))) {
+        if ($this->conf('model.pusher') !== null && count($this->conf('model.pusher'))) {
             foreach ($this->conf('model.pusher') as $relation) {
                 $model->$relation()->sync($data[$relation]);
             }
         }
 
         // attach media
-        if (null !== $this->conf('media') && count($this->conf('media'))) {
+        if ($this->conf('media') !== null && count($this->conf('media'))) {
             if ($request->has($this->conf('media.field'))) {
                 $this->model->clearMediaCollection($this->conf('media.collection'))
                     ->addMedia($this->conf('media.field'))

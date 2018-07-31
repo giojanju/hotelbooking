@@ -15,15 +15,15 @@ class Home extends Component {
 			hotels: [],
 			services: [],
 		};
+
 	}
 
 	componentDidMount() {
 		axios.post('hotels/json', null).then(re => {
 			if (re.data.succes) {
 				this.setState({
-					hotels: re.data.data,
+					hotels: Object.assign({}, re.data.data),
 				});
-
 			}
 		}).catch(er => {
 			console.log(er);
@@ -42,6 +42,7 @@ class Home extends Component {
 
 	render() {
 		const { hotels } = this.state;
+		console.log(Object.keys(hotels))
 
 		return (
 			<div>
@@ -56,7 +57,7 @@ class Home extends Component {
 							</div>	
 						</div>
 						<div className="row">
-							{hotels.map((hotel, index) => {
+							{Object.keys(hotels).map((hotel, index) => {
 								return <Hotel key={index} hotel={hotel}/>
 							})}
 						</div>
