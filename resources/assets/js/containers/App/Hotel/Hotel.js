@@ -9,7 +9,8 @@ class Home extends Component {
 		super(props);
 
 		this.state = {
-			hotel: [],
+			hotel: {},
+			services: [],
 		};
 	}
 
@@ -20,6 +21,7 @@ class Home extends Component {
 			if (re.data.success) {
 				this.setState({
 					hotel: re.data.data,
+					services: re.data.data.services,
 				});
 
 			}
@@ -79,6 +81,19 @@ class Home extends Component {
 										<h2 className="lined-heading">
 											<span>დეტალური ინფორმაცია</span>
 										</h2>
+
+										<div className="d-flex">
+											<ul className="list-unstyled">
+								            	{this.state.services.map((cur, i) => {
+								            		return i <= 2 ? <li key={i}><i className="fa fa-check-circle"></i>{cur.title}</li> : '';
+								            	})}
+								            </ul>
+								            <ul className="list-unstyled">
+								            	{this.state.services.map((cur, i) => {
+								            		return i >= 3 ? <li key={i}><i className="fa fa-check-circle"></i>{cur.title}</li> : ''
+								            	})}
+								            </ul>
+										</div>
 									</div>	
 								</div>
 							</div>

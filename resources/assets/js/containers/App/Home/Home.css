@@ -33,6 +33,9 @@
     height: 279px;
     overflow: hidden;
 }
+.room-thumb img {
+    height: 223px;
+}
 .room-thumb .mask {
 	background: #fff;
 	height: 224px;
@@ -86,7 +89,7 @@
     min-width: 120px;
     color: #5e5e5e;
 }
-.room-thumb .content i {
+.list-unstyled i {
     padding-right: 5px;
 	color: #75c5cf;
 }
