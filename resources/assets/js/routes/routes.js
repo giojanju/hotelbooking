@@ -1,6 +1,6 @@
 import Home from '../containers/App/Home/Home';
 import Hotel from '../containers/App/Hotel/Hotel';
-import Pricing from '../containers/App/Pricing/Pricing';
+import Pricings from '../containers/App/Pricings/Pricings';
 
 const routes = [
     {
@@ -13,7 +13,7 @@ const routes = [
         path: '/pricing',
         exact: false,
         auth: false,
-        component: Pricing
+        component: Pricings
     },
     {
         path: '/',
