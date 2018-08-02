@@ -16,4 +16,6 @@ class Service extends Model
     protected $translatedAttributes = [
     	'title',
     ];
+
+    protected $with = ['translations'];
 }

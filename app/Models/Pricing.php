@@ -17,4 +17,6 @@ class Pricing extends Model
     	'title',
     	'description',
     ];
+
+    protected $with = ['translations'];
 }
