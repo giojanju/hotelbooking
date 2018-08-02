@@ -55,6 +55,9 @@ class Navigationbar extends Component {
 				            <NavItem className="nav-item">
 				                <NavLink className="nav-link" to="/test">About</NavLink>
 				            </NavItem>
+				            <NavItem className="nav-item">
+				                <NavLink className="nav-link" to="/pricing">Pricing</NavLink>
+				            </NavItem>
 				        </Nav>
 				    </Collapse>
 			    </div>
