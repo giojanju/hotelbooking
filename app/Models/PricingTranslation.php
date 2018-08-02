@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HotelTranslation extends Model
-{	
+class PricingTranslation extends Model
+{
 	public $timestamps = false;
-
+	
     protected $fillable = [
-    	'name',
     	'title',
-    	'slug',
     	'description',
     ];
 }
