@@ -27,7 +27,7 @@ class CreatePricingTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
         });
     }
 
@@ -39,6 +39,6 @@ class CreatePricingTable extends Migration
     public function down()
     {
         Schema::dropIfExists('pricing_translations');
-        Schema::dropIfExists('pricing');
+        Schema::dropIfExists('pricings');
     }
 }

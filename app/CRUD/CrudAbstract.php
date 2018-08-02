@@ -26,9 +26,15 @@ abstract class CrudAbstract extends Controller
     public function create(Request $request)
     {
         $data = $request->all();
+        
+        $v = Validator::make($request->all(), $this->conf('model.rules'));
 
-        $request->validate($this->conf('model.rules'));
-
+        if ($v->fails()) {
+            return [
+                'errors' => $v->errors(),
+            ];
+        }
+        
         $object = $this->conf('model.name')::create($data);
 
         // Many to many relation

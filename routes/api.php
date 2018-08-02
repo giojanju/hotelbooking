@@ -29,4 +29,12 @@ Route::namespace('Api')->group(function () {
 	    Route::post('update/{id}', 'ServiceController@update')->name('update');
 	    Route::post('delete/{id}', 'ServiceController@delete')->name('delete');
 	});
+
+	Route::prefix('pricing')->name('pricing.')->group(function () {
+	    Route::post('json', 'PricingController@json')->name('json');
+	    Route::post('json/{id}', 'PricingController@single')->name('single');
+	    Route::post('create', 'PricingController@create')->name('create');
+	    Route::post('update/{id}', 'PricingController@update')->name('update');
+	    Route::post('delete/{id}', 'PricingController@delete')->name('delete');
+	});
 });
