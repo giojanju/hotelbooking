@@ -50,13 +50,16 @@ class Navigationbar extends Component {
 				    <Collapse isOpen={this.state.isOpen} navbar>
 				        <Nav className="mr-auto" navbar>
 				            <NavItem className="nav-item">
-				                <NavLink className="nav-link" to="/">Home</NavLink>
+				                <NavLink exact className="nav-link" to="/">მთავარი</NavLink>
 				            </NavItem>
 				            <NavItem className="nav-item">
-				                <NavLink className="nav-link" to="/test">About</NavLink>
+				                <NavLink className="nav-link" to="/test">ჩვენ შესახებ</NavLink>
 				            </NavItem>
 				            <NavItem className="nav-item">
-				                <NavLink className="nav-link" to="/pricing">Pricing</NavLink>
+				                <NavLink className="nav-link" to="/pricing">ფასები</NavLink>
+				            </NavItem>
+				            <NavItem className="nav-item">
+				                <NavLink className="nav-link" to="/services">სერვისები</NavLink>
 				            </NavItem>
 				        </Nav>
 				    </Collapse>

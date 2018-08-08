@@ -8,7 +8,12 @@ const Routes = () => (
     <Switch>
     	<ScrollToTop>
 	        {routes.map((route, i) => {
-	            return <Route key={i} path={route.path} exact={route.exact} component={route.component} />
+	            return <Route 
+	            	key={i} 
+	            	path={route.path} 
+	            	exact={route.exact} 
+	            	component={route.component} 
+	            />
 	        })}
 	    </ScrollToTop>
     </Switch>
