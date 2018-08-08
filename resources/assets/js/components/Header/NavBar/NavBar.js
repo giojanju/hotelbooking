@@ -53,7 +53,7 @@ class Navigationbar extends Component {
 				                <NavLink exact className="nav-link" to="/">მთავარი</NavLink>
 				            </NavItem>
 				            <NavItem className="nav-item">
-				                <NavLink className="nav-link" to="/test">ჩვენ შესახებ</NavLink>
+				                <NavLink className="nav-link" to="/about">ჩვენ შესახებ</NavLink>
 				            </NavItem>
 				            <NavItem className="nav-item">
 				                <NavLink className="nav-link" to="/pricing">ფასები</NavLink>

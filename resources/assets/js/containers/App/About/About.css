@@ -1,0 +1,29 @@
+.about-cover {
+	background-image: url("/img/group.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover; 
+	width: 100%;
+	height: 350px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.about-text {
+	background-color: #75c5cf;
+	text-align: center;
+	color: #fff;
+}
+.about-text .container {
+	padding: 55px;
+}
+.about-text p {
+	margin: 25px 0;
+}
+.about-secondary-text {
+	color: #000;
+}
+.about-secondary-text .secondary-item {
+	text-align: center;
+	padding: 50px 50px 0 50px;
+}
