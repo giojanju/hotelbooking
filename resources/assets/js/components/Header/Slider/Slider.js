@@ -1,7 +1,29 @@
 import React, { Component } from 'react';
 import Swiper from 'react-id-swiper';
 
+import axios from '../../../axios';
+
 export default class Slider extends Component {
+	
+	constructor (props) {
+		super(props);
+
+		this.state = {
+			sliders: [],
+		};
+	}
+
+	componentDidMount () {
+		axios.post('sliders/json').then(re => {
+			this.setState({
+				sliders: re.data.data,
+			})
+		})
+		.catch(er => {
+			console.log(er);
+		});
+	}
+
 	render() {
 	    const params = {
 			navigation: {
@@ -16,8 +38,9 @@ export default class Slider extends Component {
 
 	    return (
 		    <Swiper {...params}>
-		        <div><img src="/img/slide1.jpg" /></div>
-		        <div><img src="/img/slide2.jpg" /></div>
+		    	{this.state.sliders.map(me => {
+			        return <div key={me.id}><img src={`media/${me.media[0].order_column}/${me.media[0].file_name}`} /></div>
+				})}
 		    </Swiper>
 	    )
 	}

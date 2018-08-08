@@ -6,7 +6,7 @@ import './Footer.css';
 class Footer extends Component {
 	render() {
 		return (
-			<footer>
+			<footer id="footer">
 				<div className="container">
 					<div className="row">
 						<div className="col-md-4">

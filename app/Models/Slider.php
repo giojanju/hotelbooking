@@ -21,4 +21,6 @@ class Slider extends Model implements HasMedia
     }
 
     protected $fillable = [''];
+
+    protected $with = ['media'];
 }
