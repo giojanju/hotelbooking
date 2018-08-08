@@ -15,6 +15,7 @@ export default class Slider extends Component {
 
 	componentDidMount () {
 		axios.post('sliders/json').then(re => {
+			console.log(re.data.data.mediaImg)
 			this.setState({
 				sliders: re.data.data,
 			})

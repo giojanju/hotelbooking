@@ -71,9 +71,8 @@
 							<span>Dashboard</span></a>
 						</li>
 						<li>
-							<a href="{{ route('cp.categories.index') }}" 
-								class="{{ Route::currentRouteName() == 'cp.categories.index' || Route::currentRouteName() == 'cp.categories.create' || Route::currentRouteName() == 'cp.categories.edit' ? 'active' : '' }}"><i class="lnr lnr-list"></i> 
-							<span>Categories</span></a>
+							<a href="{{ route('cp.services.index') }}" class="{{ Route::currentRouteName() == 'cp.services.index' || Route::currentRouteName() == 'cp.services.create' || Route::currentRouteName() == 'cp.services.edit' ? 'active' : '' }}"><i class="lnr lnr-store"></i> 
+							<span>Services</span></a>
 						</li>
 						<li>
 							<a href="{{ route('cp.sliders.index') }}" class="{{ Route::currentRouteName() == 'cp.sliders.index' || Route::currentRouteName() == 'cp.sliders.create' || Route::currentRouteName() == 'cp.sliders.edit' ? 'active' : '' }}"><i class="lnr lnr-screen"></i> 

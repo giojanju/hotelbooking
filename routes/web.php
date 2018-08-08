@@ -26,6 +26,15 @@ Route::prefix('cp')->middleware('auth')->name('cp.')->namespace('Cp')->group(fun
 		Route::get('edit/{menu}', 'CategoryController@edit')->name('edit');
 		Route::post('update/{menu}', 'CategoryController@update')->name('update');
 	});
+
+	Route::prefix('services')->name('services.')->group(function () {
+		Route::get('/', 'ServiceController@index')->name('index');
+		Route::get('create', 'ServiceController@create')->name('create');
+		Route::post('create', 'ServiceController@store')->name('store');
+		Route::get('remove/{id}', 'ServiceController@remove')->name('remove');
+		Route::get('edit/{service}', 'ServiceController@edit')->name('edit');
+		Route::post('update/{service}', 'ServiceController@update')->name('update');
+	});
 	
 	Route::prefix('sliders')->name('sliders.')->group(function () {
 		Route::get('/', 'SliderController@index')->name('index');
