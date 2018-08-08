@@ -11,6 +11,7 @@
 	border-radius: 25px;
 	padding: 25px 30px;
 	text-align: center;
+	min-height: 350px;
 }
 .pricing-cont h4 {
 	color: #444;

@@ -10,7 +10,23 @@ class Pricings extends Component {
 		super(props);
 
 		this.state = {
-			pricing: [],
+			pricing: [
+				{
+					title: 'ერთჯერადი მომსახურება',
+					text: 'ჩვენ გთავაზობთ ერთჯერად სერვისებს',
+					price: 'ფასი: 250 ლარი',
+				},
+				{
+					title: 'უნივერსალური',
+					text: 'ჩვენ ვმართავთ ბინას და ვიღებთ საკომისიოს მთლიანი შემოსავლიდან',
+					price: '15%-დან',
+				},
+				{
+					title: 'ფიქსირებული',
+					text: 'მთლიანად ვმართავთ ბინას და ვიხდით წინასწარ შეთანხმებულ თანხას ყოველთვიურად',
+					price: 'წინასწარ შეთანხმებული თანხა',
+				}
+			],
 		};
 	}
 
@@ -26,13 +42,9 @@ class Pricings extends Component {
 					<div className="container">
 						<h2>სამი სხვადასხვა მომსახურების პაკეტი</h2>
 						<div className="row">
-							<Pricing />
-							<div className="col-md-4">
-								2
-							</div>
-							<div className="col-md-4">
-								3
-							</div>
+							{this.state.pricing.map((price, index) => {
+								return <Pricing key={index} price={price} />
+							})}
 						</div>
 					</div>
 				</section>
