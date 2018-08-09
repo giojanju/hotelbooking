@@ -26,7 +26,7 @@
 								<tr>
 									<td width="10%">{{ $loop->iteration }}</td>
 									<td width="30%">{{ og($hotel, 'title') }}</td>
-									<td width="30%">{{ str_limit(og($hotel, 'text'), 50, '..') }}</td>
+									<td width="30%">{{ str_limit(og($hotel, 'description'), 50, '..') }}</td>
 									<td width="30%">
 										<a href="{{ route('cp.hotels.remove', [og($hotel, 'id')]) }}" class="btn btn-danger"><i class="fa fa-trash-o"></i> Remove</a>
 										<a href="{{ route('cp.hotels.edit', ['id' => og($hotel, 'id')]) }}" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit</a>

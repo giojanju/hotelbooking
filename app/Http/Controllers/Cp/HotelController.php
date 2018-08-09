@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Cp;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Hotel;
+use App\Models\HotelService;
+use Illuminate\Http\Request;
 
 class HotelController extends Controller
 {
@@ -17,7 +18,9 @@ class HotelController extends Controller
 
     public function create()
     {
-    	return view('cp.hotels.add');
+        $hotel_services = HotelService::all();
+
+    	return view('cp.hotels.add', compact('hotel_services'));
     }
 
     public function store(Request $request)
@@ -51,6 +54,11 @@ class HotelController extends Controller
         if ($hotel) {
             return redirect(route('cp.hotels.create'))->withSuccess('New hotel created successfuly!');
         }
+    }
+
+    public function edit(Hotel $hotel)
+    {
+        return view('cp.hotels.modify', compact('hotel'));
     }
 
     public function remove($id)
