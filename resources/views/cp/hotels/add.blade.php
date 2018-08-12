@@ -8,7 +8,7 @@
 			</div>
 			<div class="panel-body">
 				@include('partials.success')
-				<form method="POST" class="form-auth-small" action="{{ route('cp.services.store') }}">
+				<form method="POST" class="form-auth-small" enctype="multipart/form-data" action="{{ route('cp.hotels.store') }}" >
                     @csrf
 		    		<div class="form-group">
                         <label for="ge.name" class="control-label sr-only">Service name</label>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label for="ge.description" class="control-label sr-only">description</label>
-                        <textarea class="form-control" rows="8" name="description" id="description">{{ old('description') }}</textarea>
+                        <textarea class="form-control" rows="8" name="ge.description" id="ge.description">{{ old('ge.description') }}</textarea>
                         @if ($errors->has('ge.description'))
                             <span class="parsley-errors-list filled" role="alert">
                                 <strong class="parsley-required">
@@ -43,14 +43,69 @@
                             </span>
                         @endif
                     </div>
+                    <div class="form-group image-container">
+                        <label 
+                            for="image" 
+                            class="control-label"
+                        >
+                            Upload image
+                        </label>
+                        <div style="overflow: hidden;" class="overflow-h">
+                            <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        </div>
+                    </div>
                     <label for="services">Hotel services</label>
                     <div class="row">
 	                    @foreach($hotel_services as $service)
 	                    	<div class="col-md-4">
 	                    		<div class="form-group">
 			                    	<label class="fancy-checkbox">
-										<input type="checkbox">
-										<span>{{ $service['name'] }}</span>
+										<input name="hotel_services[]" value="{{ og($service, 'id') }}" type="checkbox">
+										<span>{{ og($service, 'title') }}</span>
 									</label>	
 			                    </div>
 	                    	</div>

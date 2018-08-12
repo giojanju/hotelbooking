@@ -13,7 +13,7 @@ class HotelController extends CrudAbstract
     protected $config = [
         'model' => [
             'name' => Hotel::class,
-            'relations' => ['services', 'media'],
+            'relations' => ['hotel_services', 'media'],
             'rules' => [
                 'price' => 'required',
             ],

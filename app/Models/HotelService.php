@@ -18,4 +18,9 @@ class HotelService extends Model
     ];
 
     protected $with = ['translations'];
+
+    public function hotels()
+    {
+        return $this->belongsToMany(Hotel::class);
+    }
 }

@@ -44,6 +44,15 @@ Route::prefix('cp')->middleware('auth')->name('cp.')->namespace('Cp')->group(fun
 		Route::get('edit/{hotel}', 'HotelController@edit')->name('edit');
 		Route::post('update/{hotel}', 'HotelController@update')->name('update');
 	});
+
+	Route::prefix('hotel-services')->name('hotel_services.')->group(function () {
+		Route::get('/', 'HotelServiceController@index')->name('index');
+		Route::get('create', 'HotelServiceController@create')->name('create');
+		Route::post('create', 'HotelServiceController@store')->name('store');
+		Route::get('remove/{id}', 'HotelServiceController@remove')->name('remove');
+		Route::get('edit/{service}', 'HotelServiceController@edit')->name('edit');
+		Route::post('update/{service}', 'HotelServiceController@update')->name('update');
+	});
 	
 	Route::prefix('sliders')->name('sliders.')->group(function () {
 		Route::get('/', 'SliderController@index')->name('index');

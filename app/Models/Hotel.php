@@ -33,4 +33,9 @@ class Hotel extends Model implements HasMedia
     {
     	return $this->getFirstMedia('cover');
     }
+
+    public function hotel_services()
+    {
+        return $this->belongsToMany(HotelService::class);
+    }
 }

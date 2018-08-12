@@ -8,73 +8,116 @@
 			</div>
 			<div class="panel-body">
 				@include('partials.success')
-				<form method="POST" class="form-auth-small" action="{{ route('cp.hotels.update', [og($menu, 'id')]) }}">
-                    @csrf
-						<div>
-						  	<!-- Nav tabs -->
-							<ul class="nav nav-tabs" role="tablist">
-								@foreach ($_locales as $local => $locale)
-							    	<li 
-							    		role="presentation" 
-							    		class="{{ lang() == $local ? 'active' : '' }}"
-							    	>
-							    		<a 
-							    			href="#{{ $local }}" 
-							    			aria-controls="{{ $local }}" 
-							    			role="tab" 
-							    			data-toggle="tab"
-							    		>
-							    			<img width="30px" src="{{ asset('img/' . $locale['flag']) }}" alt=""> {{ $locale['name'] }}
-							    		</a>
-							    	</li>
-	                            @endforeach
-							</ul>
-
-							<!-- Tab panes -->
-							<div class="tab-content">
-								@foreach ($_locales as $local => $locale)
-							    	<div role="tabpanel" class="tab-pane fade{{ lang() == $local ? ' in active' : '' }}" id="{{ $local }}">
-							    		<div class="form-group">
-					                        <label for="{{$local}}[name]" class="control-label sr-only">Category title</label>
-					                        <input 
-					                        	type="text" 
-					                        	name="{{$local}}[name]" 
-					                        	class="form-control{{ $errors->has($local.'.name') ? ' parsley-error' : '' }}" 
-					                        	id="{{$local}}[name]" 
-					                        	value="{{ og($menu->translate($local), 'name') }}" 
-					                        	placeholder="Category title"
-					                        >
-					                        @if ($errors->has($local.'.name'))
-					                            <span class="parsley-errors-list filled" role="alert">
-					                                <strong class="parsley-required">{{ $errors->first($local.'.name') }}</strong>
-					                            </span>
-					                        @endif
-					                    </div>
-							    	</div>
-							    @endforeach
-					    		<div class="form-group">
-			                        <label for="name" class="control-label">Parent Category</label>
-			                        <select name="parent_id" id="parent_id" class="form-control">
-			                        	<option value="" >Select parent(empty)</option>
-			                        	@foreach($categories as $category)
-			                        		<option 
-			                        			value="{{ og($category, 'id') }}"
-			                        			{{ og($category, 'id') == og($menu, 'parent_id') ? 'selected' : '' }}
-			                        		>
-			                        			{{ og($category, 'name') }}
-			                        		</option>
-			                        	@endforeach
-			                        </select>
-			                        @if ($errors->has('parent_id'))
-			                            <span class="parsley-errors-list filled" role="alert">
-			                                <strong class="parsley-required">{{ $errors->first('parent_id') }}</strong>
-			                            </span>
-			                        @endif
+				<form method="POST" class="form-auth-small" enctype="multipart/form-data" action="{{ route('cp.hotels.update', [og($hotel, 'id')]) }}">
+		    		<div class="form-group">
+                        <label for="ge.name" class="control-label sr-only">Service name</label>
+                        <input type="text" name="ge[name]" class="form-control{{ $errors->has('ge.name') ? ' parsley-error' : '' }}" id="ge.name" value="{{ og($hotel, 'name') }}" placeholder="Service name">
+                        @if ($errors->has('ge.name'))
+                            <span class="parsley-errors-list filled" role="alert">
+                                <strong class="parsley-required">
+                                	{{ $errors->first('ge.name') }}
+                                </strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="ge.title" class="control-label sr-only">Service title</label>
+                        <input type="text" name="ge[title]" class="form-control{{ $errors->has('ge.title') ? ' parsley-error' : '' }}" id="ge.title" value="{{ og($hotel, 'title') }}" placeholder="Service title">
+                        @if ($errors->has('ge.title'))
+                            <span class="parsley-errors-list filled" role="alert">
+                                <strong class="parsley-required">
+                                	{{ $errors->first('ge.title') }}
+                                </strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="ge.description" class="control-label sr-only">description</label>
+                        <textarea class="form-control" rows="8" name="ge.description" id="description">{{ og($hotel, 'description') }}</textarea>
+                        @if ($errors->has('ge.description'))
+                            <span class="parsley-errors-list filled" role="alert">
+                                <strong class="parsley-required">
+                                	{{ $errors->first('ge.description') }}
+                                </strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group image-container">
+                        <label 
+                            for="image" 
+                            class="control-label"
+                        >
+                            Upload image
+                        </label>
+                        <div style="overflow: hidden;" class="overflow-h">
+                            <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="ant-upload ant-upload-select ant-upload-select-picture-card">
+                            <span class="ant-upload" role="button" tabindex="0">
+                                <input type="file" class="featured--image photos" name="image[]" accept="" style="opcity: 0">
+                                <div>
+                                    <i class="anticon lnr lnr-plus-circle"></i>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </span>
+                        </div>
+                        </div>
+                    </div>
+                    <label for="services">Hotel services</label>
+                    <div class="row">
+	                    @foreach($hotel_services as $service)
+	                    	<div class="col-md-4">
+	                    		<div class="form-group">
+			                    	<label class="fancy-checkbox">
+										<input name="hotel_services[]" value="{{ og($service, 'id') }}" type="checkbox" 
+										@foreach ($hotel->hotel_services as $h_s) 
+											@if($h_s->hotel_service_id == $service->hotel_service_id)
+												checked 
+											@endif
+										@endforeach
+										>
+										<span>{{ og($service, 'title') }}</span>
+									</label>	
 			                    </div>
-							</div>
-						</div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">UPDATE CATEGORY</button>
-                </form>
+	                    	</div>
+	                    @endforeach
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">CREATE NEW</button>
+				</form>
 			</div>
 		</div>
 	</div>
