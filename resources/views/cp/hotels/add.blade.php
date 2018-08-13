@@ -33,8 +33,8 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="ge.description" class="control-label sr-only">description</label>
-                        <textarea class="form-control" rows="8" name="ge.description" id="ge.description">{{ old('ge.description') }}</textarea>
+                        <label for="ge[description]" class="control-label sr-only">description</label>
+                        <textarea class="form-control" rows="8" name="ge[description]" id="ge.description">{{ old('ge.description') }}</textarea>
                         @if ($errors->has('ge.description'))
                             <span class="parsley-errors-list filled" role="alert">
                                 <strong class="parsley-required">

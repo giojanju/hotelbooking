@@ -21,7 +21,7 @@ class Home extends Component {
 			if (re.data.success) {
 				this.setState({
 					hotel: re.data.data,
-					services: re.data.data.services,
+					services: re.data.data.hotel_services,
 				});
 
 			}
@@ -48,7 +48,7 @@ class Home extends Component {
 	    if (media !== undefined) {
 	    	mediaImgs = media.map(img => {
 	    		return  (<div key={img.id}>
-	    					<img width="100%" src={`/media/${img.order_column}/${img.file_name}`} />
+	    					<img width="100%" src={`/media/${img.id}/${img.file_name}`} />
 	    				</div>);
 	    	});
 	    }

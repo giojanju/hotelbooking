@@ -75,6 +75,10 @@
 							<span>Services</span></a>
 						</li>
 						<li>
+							<a href="{{ route('cp.hotels.index') }}" class="{{ Route::currentRouteName() == 'cp.hotels.index' || Route::currentRouteName() == 'cp.hotels.create' || Route::currentRouteName() == 'cp.hotels.edit' ? 'active' : '' }}"><i class="lnr lnr-apartment"></i> 
+							<span>Hotels</span></a>
+						</li>
+						<li>
 							<a href="{{ route('cp.sliders.index') }}" class="{{ Route::currentRouteName() == 'cp.sliders.index' || Route::currentRouteName() == 'cp.sliders.create' || Route::currentRouteName() == 'cp.sliders.edit' ? 'active' : '' }}"><i class="lnr lnr-screen"></i> 
 							<span>Sliders</span></a>
 						</li>

@@ -40,7 +40,7 @@ export default class Slider extends Component {
 	    return (
 		    <Swiper {...params}>
 		    	{this.state.sliders.map(me => {
-			        return <div key={me.id}><img src={`media/${me.media[0].order_column}/${me.media[0].file_name}`} /></div>
+			        return <div key={me.id}><img src={`media/${me.media[0].id}/${me.media[0].file_name}`} /></div>
 				})}
 		    </Swiper>
 	    )

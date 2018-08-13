@@ -104,10 +104,12 @@
 	                    		<div class="form-group">
 			                    	<label class="fancy-checkbox">
 										<input name="hotel_services[]" value="{{ og($service, 'id') }}" type="checkbox" 
-										@foreach ($hotel->hotel_services as $h_s) 
-											@if($h_s->hotel_service_id == $service->hotel_service_id)
-												checked 
-											@endif
+										@foreach ($hotel->hotel_services as $h_s)
+                                            @foreach($service->hotels as $s_h)
+                                                @if($h_s->hotel_service_id === $s_h->hotel_service_id)
+                                                    checked 
+                                                @endif
+                                            @endforeach 
 										@endforeach
 										>
 										<span>{{ og($service, 'title') }}</span>

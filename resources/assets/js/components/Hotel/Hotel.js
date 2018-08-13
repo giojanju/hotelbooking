@@ -28,7 +28,7 @@ const hotel = (props) => {
 	return (
 		<div className="col-md-4">
 			<div className="room-thumb">
-				<img width="100%" src={`/media/${props.media[0].order_column}/${props.media[0].file_name}`} />
+				<img width="100%" src={`/media/${props.media[0].id}/${props.media[0].file_name}`} />
 				<div className="mask">
 					<div className="main main d-flex justify-content-between align-items-center">
 						<h5>{props.name}</h5>

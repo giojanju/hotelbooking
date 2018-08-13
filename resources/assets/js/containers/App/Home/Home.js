@@ -57,7 +57,7 @@ class Home extends Component {
 						</div>
 						<div className="row">
 							{hotels.map((hotel, index) => {
-								return <Hotel key={index} {...hotel} services={hotel.services}/>
+								return <Hotel key={index} {...hotel} services={hotel.hotel_services}/>
 							})}
 						</div>
 					</div>
